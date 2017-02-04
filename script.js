@@ -1,5 +1,7 @@
 
   var gameLive=true;
+  //game initial level
+  var level=1;
   // declare variables at first
   /*---set size of game area for easy change purpose---*/
   var gameW=640;
@@ -34,7 +36,7 @@
     {
       x:350,
       y:10,
-      speedY:5,
+      speedY:4,
       width:40,
       height:40
     },
@@ -42,7 +44,7 @@
     {
       x:450,
       y:10,
-      speedY:7,
+      speedY:5,
       width:40,
       height:40
     },
@@ -50,7 +52,7 @@
     {
       x:540,
       y:10,
-      speedY:9,
+      speedY:6,
       width:40,
       height:40
     }
@@ -140,9 +142,8 @@
       if(checkCollision(player,element)){
         //stop the game
         gameLive=false;
-        alert("GAME OVER!");
+        alert("GAME OVER! Give another try!");
         window.location="";/*---reload the window---*/
-
       };/*---end of checkCollision---*/
     });/*---end of forEach loop---*/
 
@@ -150,8 +151,24 @@
     if(checkCollision(player,goal)){
       //stop the game
       gameLive=false;
-      alert("WINNING!");
+      alert("WINNING! Try next level!");
       window.location="";/*---reload the window---*/
+
+      //multiple levels settings
+      level++;
+      // layers back to initial positions
+      player.x=10;
+      player.y=160;
+      // enemies move faster at eaching level
+      enemies.forEach(function(element,index){
+        player.speedX++;
+        if(element.speedY>0){
+          element.speedY++;
+        }
+        else{
+          element.speedY--;
+        }/*---end of if statement---*/
+      })/*---end of enemies move faster loop---*/
     }/*---end of check winning---*/
   };/*---end of update function---*/
 
