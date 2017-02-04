@@ -1,4 +1,4 @@
-
+// initiating game
   var gameLive=true;
   //game initial level
   var level=1;
