@@ -1,4 +1,4 @@
-window.addEventListener("load",function(){
+
   var gameLive=true;
   // declare variables at first
   /*---set size of game area for easy change purpose---*/
@@ -72,7 +72,7 @@ window.addEventListener("load",function(){
     height:40
   }
   //inserting images for characters
-  var doodle={  };
+  var doodle={};
   var loadDoodle=function(){
     //adding images for player
     doodle.player=new Image();
@@ -89,7 +89,7 @@ window.addEventListener("load",function(){
   };
 
   //grab the canvas and context
-  var canvas = document.getElementById("mycanvas");
+  var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
 
   //event listeners to move player
@@ -101,6 +101,7 @@ window.addEventListener("load",function(){
   };
   canvas.addEventListener("mousedown",movePlayer);
   canvas.addEventListener("mouseup",stopPlayer);
+  //for touch screen
   canvas.addEventListener("touchstart",movePlayer);
   canvas.addEventListener("touchend",stopPlayer);
 
@@ -109,18 +110,21 @@ window.addEventListener("load",function(){
     //compare positions with two closed rectangle: collision happened when distances between two rectanges less than max size of the two rectangles
     var closeOnW=Math.abs(rect1.x-rect2.x)<=Math.max(rect1.width,rect2.width);
     var closeOnH=Math.abs(rect1.y-rect2.y)<=Math.max(rect1.height,rect2.height);
-    return closeOnH && closeOnW;
+    return closeOnW && closeOnH;
   };
 
   // //create a fucntion so that to update each enemy's position
   var positionUpdate=function(){
+    //update players
+    if(player.isMoving){
+      player.x+=player.speedX;
+    };
+
     //update enemies positions
     /*below is a forEach loop: element is the properties for each enemy and index is the order of enemy array.*/
     enemies.forEach(function(element,index){
-
       //enemies movement
       element.y+=element.speedY;
-
       //check borders so that to have enemies bounce when hit edge
       if(element.y<=10){
         element.y=10;
@@ -130,20 +134,17 @@ window.addEventListener("load",function(){
         element.y=gameH-50;
         element.speedY=-element.speedY;
       }/*---end of else if---*/
+
+      //check for collision with player
+      /*element is a attribute of the function that will be called in forEach loop. So should not be outside of the repeated function (and the loop) */
+      if(checkCollision(player,element)){
+        //stop the game
+        gameLive=false;
+        alert("GAME OVER!");
+        window.location="";/*---reload the window---*/
+
+      };/*---end of checkCollision---*/
     });/*---end of forEach loop---*/
-
-    //update players
-    if(player.isMoving){
-      player.x+=player.speedX;
-    };
-
-    //check for collision with player
-    if(checkCollision(player,element)){
-      //stop the game
-      gameLive=false;
-      alert("GAME OVER!");
-      window.location="";/*---reload the window---*/
-    };/*---end of checkCollision---*/
 
     //check if won the game
     if(checkCollision(player,goal)){
@@ -192,4 +193,3 @@ window.addEventListener("load",function(){
 
   loadDoodle();/*---load images---*/
   movement();/*---initiating the movement for all ---*/
-});/*---end of load event---*/
