@@ -61,7 +61,7 @@
   var player={
     x:10,
     y:160,
-    speedX:2,
+    speedX:3,
     width:40,
     height:40,
     isMoving:false
