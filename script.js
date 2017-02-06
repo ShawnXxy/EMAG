@@ -110,8 +110,8 @@
   //check collision
   var checkCollision=function(rect1,rect2){
     //compare positions with two closed rectangle: collision happened when distances between two rectanges less than max size of the two rectangles
-    var closeOnW=Math.abs(rect1.x-rect2.x)<=Math.max(rect1.width,rect2.width);
-    var closeOnH=Math.abs(rect1.y-rect2.y)<=Math.max(rect1.height,rect2.height);
+    var closeOnW=Math.abs(rect1.x-rect2.x)<Math.max(rect1.width,rect2.width);
+    var closeOnH=Math.abs(rect1.y-rect2.y)<Math.max(rect1.height,rect2.height);
     return closeOnW && closeOnH;
   };
 
