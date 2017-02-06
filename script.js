@@ -151,7 +151,7 @@
     if(checkCollision(player,goal)){
       //stop the game
       gameLive=false;
-      alert("WINNING! Try next level!");
+      alert("Completed! Try next level!");
       window.location="";/*---reload the window---*/
 
       //multiple levels settings
