@@ -20,7 +20,7 @@
     {
       x:150,
       y:10,
-      speedY:2,
+      speedY:1.5,
       width:40,
       height:40
     },
@@ -28,7 +28,7 @@
     {
       x:250,
       y:10,
-      speedY:3,
+      speedY:2,
       width:40,
       height:40
     },
@@ -36,7 +36,7 @@
     {
       x:350,
       y:10,
-      speedY:4,
+      speedY:2.5,
       width:40,
       height:40
     },
@@ -44,7 +44,7 @@
     {
       x:450,
       y:10,
-      speedY:5,
+      speedY:3,
       width:40,
       height:40
     },
@@ -52,7 +52,7 @@
     {
       x:540,
       y:10,
-      speedY:6,
+      speedY:3.5,
       width:40,
       height:40
     }
@@ -61,7 +61,7 @@
   var player={
     x:10,
     y:160,
-    speedX:4,
+    speedX:2.5,
     width:40,
     height:40,
     isMoving:false
@@ -121,7 +121,6 @@
     if(player.isMoving){
       player.x+=player.speedX;
     };
-
     //update enemies positions
     /*below is a forEach loop: element is the properties for each enemy and index is the order of enemy array.*/
     enemies.forEach(function(element,index){
@@ -136,7 +135,6 @@
         element.y=gameH-50;
         element.speedY=-element.speedY;
       }/*---end of else if---*/
-
       //check for collision with player
       /*element is a attribute of the function that will be called in forEach loop. So should not be outside of the repeated function (and the loop) */
       if(checkCollision(player,element)){
@@ -150,24 +148,24 @@
     //check if won the game
     if(checkCollision(player,goal)){
       //stop the game
-      gameLive=false;
+      // gameLive=false;
       alert("Completed! Try next level!");
-      window.location="";/*---reload the window---*/
+      // window.location="";/*---reload the window---*/
 
       //multiple levels settings
       level++;
-      // layers back to initial positions
+      // players back to initial positions
       player.x=10;
       player.y=160;
-      // enemies move faster at eaching level
+      // enemies move faster (by 1) at each level
       enemies.forEach(function(element,index){
-        player.speedX++;
+        player.speedX=player.speedX+0.5; //increase player speedy by 0.5
         if(element.speedY>0){
           element.speedY++;
         }
         else{
           element.speedY--;
-        }/*---end of if statement---*/
+        }/*---end of if else statement---*/
       })/*---end of enemies move faster loop---*/
     }/*---end of check winning---*/
   };/*---end of update function---*/
