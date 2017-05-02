@@ -52,7 +52,7 @@
     {
       x:540,
       y:10,
-      speedY:6.5,
+      speedY:7,
       width:40,
       height:40
     }
@@ -148,7 +148,7 @@
     //check if won the game
     if(checkCollision(player,goal)){
       //stop the game
-      // gameLive=false;
+      gameLive=false;
       alert("Completed! Try next level!");
       // window.location="";/*---reload the window---*/
 
