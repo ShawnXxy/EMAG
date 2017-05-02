@@ -12,7 +12,7 @@
     {
       x:90,
       y:10,
-      speedY:1,
+      speedY:2,
       width:40,
       height:40
     },
@@ -20,7 +20,7 @@
     {
       x:150,
       y:10,
-      speedY:1.5,
+      speedY:2.5,
       width:40,
       height:40
     },
@@ -28,7 +28,7 @@
     {
       x:250,
       y:10,
-      speedY:2,
+      speedY:3,
       width:40,
       height:40
     },
@@ -36,7 +36,7 @@
     {
       x:350,
       y:10,
-      speedY:2.5,
+      speedY:4.5,
       width:40,
       height:40
     },
@@ -44,7 +44,7 @@
     {
       x:450,
       y:10,
-      speedY:3,
+      speedY:6,
       width:40,
       height:40
     },
@@ -52,7 +52,7 @@
     {
       x:540,
       y:10,
-      speedY:3.5,
+      speedY:6.5,
       width:40,
       height:40
     }
