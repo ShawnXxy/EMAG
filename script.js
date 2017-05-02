@@ -12,7 +12,7 @@
     {
       x:90,
       y:10,
-      speedY:2,
+      speedY:1.5,
       width:40,
       height:40
     },
@@ -20,7 +20,7 @@
     {
       x:150,
       y:10,
-      speedY:2.5,
+      speedY:2,
       width:40,
       height:40
     },
@@ -28,7 +28,7 @@
     {
       x:250,
       y:10,
-      speedY:3,
+      speedY:2.5,
       width:40,
       height:40
     },
@@ -36,7 +36,7 @@
     {
       x:350,
       y:10,
-      speedY:4.5,
+      speedY:3,
       width:40,
       height:40
     },
@@ -44,7 +44,7 @@
     {
       x:450,
       y:10,
-      speedY:6,
+      speedY:4,
       width:40,
       height:40
     },
@@ -52,7 +52,7 @@
     {
       x:540,
       y:10,
-      speedY:7,
+      speedY:5,
       width:40,
       height:40
     }
@@ -150,23 +150,23 @@
       //stop the game
       gameLive=false;
       alert("Completed! Try next level!");
-      // window.location="";/*---reload the window---*/
+      window.location="";/*---reload the window---*/
 
-      // //multiple levels settings
-      // level++;
-      // // players back to initial positions
-      // player.x=10;
-      // player.y=160;
-      // // enemies move faster (by 1) at each level
-      // enemies.forEach(function(element,index){
-      //   player.speedX=player.speedX+0.5; //increase player speedy by 0.5
-      //   if(element.speedY>0){
-      //     element.speedY++;
-      //   }
-      //   else{
-      //     element.speedY--;
-      //   }/*---end of if else statement---*/
-      // })/*---end of enemies move faster loop---*/
+      //multiple levels settings
+      level++;
+      // players back to initial positions
+      player.x=10;
+      player.y=160;
+      // enemies move faster (by 1) at each level
+      enemies.forEach(function(element,index){
+        player.speedX=player.speedX+0.5; //increase player speedy by 0.5
+        if(element.speedY>0){
+          element.speedY++;
+        }
+        else{
+          element.speedY--;
+        }/*---end of if else statement---*/
+      })/*---end of enemies move faster loop---*/
     }/*---end of check winning---*/
   };/*---end of update function---*/
 
