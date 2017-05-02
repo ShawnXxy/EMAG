@@ -152,21 +152,21 @@
       alert("Completed! Try next level!");
       // window.location="";/*---reload the window---*/
 
-      //multiple levels settings
-      level++;
-      // players back to initial positions
-      player.x=10;
-      player.y=160;
-      // enemies move faster (by 1) at each level
-      enemies.forEach(function(element,index){
-        player.speedX=player.speedX+0.5; //increase player speedy by 0.5
-        if(element.speedY>0){
-          element.speedY++;
-        }
-        else{
-          element.speedY--;
-        }/*---end of if else statement---*/
-      })/*---end of enemies move faster loop---*/
+      // //multiple levels settings
+      // level++;
+      // // players back to initial positions
+      // player.x=10;
+      // player.y=160;
+      // // enemies move faster (by 1) at each level
+      // enemies.forEach(function(element,index){
+      //   player.speedX=player.speedX+0.5; //increase player speedy by 0.5
+      //   if(element.speedY>0){
+      //     element.speedY++;
+      //   }
+      //   else{
+      //     element.speedY--;
+      //   }/*---end of if else statement---*/
+      // })/*---end of enemies move faster loop---*/
     }/*---end of check winning---*/
   };/*---end of update function---*/
 
